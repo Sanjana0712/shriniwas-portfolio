@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shriniwas Waje</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Films by Shriniwas Waje: direction, cinematography and more. Film & Video Communication, National Institute of Design, Ahmedabad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a black-and-white, viewfinder-framed hero, then one band per craft (Direction, Cinematography, Extra Work), read like a call sheet. Monochrome as on silver film stock; the only colour is the red REC tally. */
+:root {
+  --ground: #0A0A0A;      /* black */
+  --ground-2: #141414;    /* raised band */
+  --line: #2A2A2A;
+  --film: #ECEAE6;        /* paper white for text */
+  --dim: #9E9C98;         /* silver grey */
+  --hi: #FFFFFF;          /* emphasis: pure white */
+  --rec: #E5484D;         /* REC tally only */
+  --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --tc: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--ground); color: var(--film); font-family: var(--body); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--hi); outline-offset: 3px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+.wrap {
+  max-width: 1320px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); } }
+
+.label { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+.label b { color: var(--hi); font-weight: 500; }
+
+/* ---------- header ---------- */
+.top { position: absolute; inset: 0 0 auto; z-index: 5; }
+.top .wrap { display: flex; justify-content: flex-end; padding-block: 20px; }
+.nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 24px; }
+.nav a { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding-block: 12px; color: var(--film); text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+.nav a:hover { color: var(--hi); text-decoration: underline; text-underline-offset: 6px; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; min-height: clamp(480px, 52vw, 720px); display: grid; align-items: center; overflow: hidden; isolation: isolate; background: var(--ground); }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 35%; z-index: -2; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(10,10,10,0.55), rgba(10,10,10,0.25) 100%), linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0) 30%, rgba(10,10,10,0) 70%, rgba(10,10,10,0.55) 100%); }
+.grain { position: absolute; inset: 0; z-index: -1; opacity: 0.05; pointer-events: none; mix-blend-mode: overlay; }
+.vf { position: absolute; inset: clamp(72px, 9vw, 96px) clamp(14px, 3vw, 36px) clamp(14px, 3vw, 36px); pointer-events: none; }
+.vf i { position: absolute; width: clamp(22px, 3vw, 40px); height: clamp(22px, 3vw, 40px); border: 0 solid rgba(255,255,255,0.8); animation: frame-in 0.9s cubic-bezier(.2,.7,.2,1) both; }
+.vf i:nth-child(1) { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+.vf i:nth-child(2) { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+.vf i:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+.vf i:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+@keyframes frame-in { from { opacity: 0; transform: scale(1.4); } to { opacity: 1; transform: none; } }
+.vf .hud { position: absolute; font-family: var(--tc); font-size: 12px; letter-spacing: 0.1em; color: var(--hi); text-shadow: 0 1px 2px rgba(0,0,0,0.6); }
+.hud.tl { top: 14px; left: 18px; display: flex; align-items: center; gap: 8px; }
+.hud.tr { top: 14px; right: 18px; }
+.hud.br { bottom: 14px; right: 18px; font-variant-numeric: tabular-nums; font-size: 14px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rec); animation: blink 1.2s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+
+.hero-copy { position: relative; padding-block: 0 clamp(56px, 7vw, 88px); display: grid; gap: 24px; }
+.hero h1 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(26px, 3vw, 40px); line-height: 1.1; letter-spacing: 0.01em; color: var(--hi); }
+.hero h1 span { display: block; font-family: var(--mono); color: var(--film); font-weight: 400; font-size: 12px; letter-spacing: 0.16em; line-height: 1; margin-bottom: 18px; }
+.hero-sub { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px 40px; }
+.hero-line { display: grid; gap: 10px; max-width: 600px; }
+.hero-line p { font-size: clamp(17px, 1.5vw, 19px); line-height: 1.5; color: var(--hi); }
+.hero-line small { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+.ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding-top: 6px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 2px; font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--film); color: var(--film); background: transparent; cursor: pointer; transition: background .2s, color .2s; }
+.btn:hover { background: var(--hi); border-color: var(--hi); color: var(--ground); }
+.btn.solid { background: var(--hi); border-color: var(--hi); color: var(--ground); }
+.btn.solid:hover { background: transparent; color: var(--hi); }
+.btn.sm { position: relative; min-height: 34px; padding: 0 14px; font-size: 10px; letter-spacing: 0.12em; }
+.btn.sm::after { content: ""; position: absolute; inset: -6px -4px; }
+
+/* ---------- craft index under hero ---------- */
+.crafts { border-bottom: 1px solid var(--line); }
+.crafts .wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.crafts a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 18px; text-decoration: none; border-left: 1px solid var(--line); padding-inline: 20px; min-height: 44px; }
+.crafts a:first-child { border-left: 0; padding-left: 0; }
+.crafts a strong { font-family: var(--display); font-weight: 700; font-size: clamp(17px, 1.6vw, 20px); text-transform: uppercase; letter-spacing: 0.02em; line-height: 1; }
+.crafts a:hover strong { text-decoration: underline; text-underline-offset: 6px; }
+@media (max-width: 640px) {
+  .crafts .wrap { grid-template-columns: minmax(0, 1fr); }
+  .crafts a, .crafts a:first-child { border-left: 0; padding-inline: 0; border-top: 1px solid var(--line); }
+  .crafts a:first-child { border-top: 0; }
+}
+
+/* ---------- sections ---------- */
+.band { padding-block: clamp(64px, 8vw, 112px); }
+.band.alt { background: var(--ground-2); border-block: 1px solid var(--line); }
+.slate { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 32px; padding-bottom: 28px; margin-bottom: clamp(28px, 3vw, 44px); border-bottom: 1px solid var(--line); }
+.slate h2 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(20px, 2vw, 26px); line-height: 1.15; letter-spacing: 0.02em; color: var(--hi); }
+.slate h2.hollow { color: transparent; -webkit-text-stroke: 1px var(--hi); }
+@supports not (-webkit-text-stroke: 1px black) { .slate h2.hollow { color: var(--hi); } }
+.slate-meta { display: flex; flex-wrap: wrap; gap: 8px 32px; }
+.slate-meta div { display: grid; gap: 2px; }
+.slate-meta strong { font-family: var(--display); font-weight: 600; font-size: 15px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+
+/* ---------- films ---------- */
+.films { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(40px, 5vw, 64px) clamp(20px, 3vw, 36px); }
+.films.feature { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.films.feature .film:first-child { grid-column: 1 / span 2; grid-row: 1 / span 2; }
+@media (max-width: 1000px) {
+  .films.feature { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .films.feature .film:first-child { grid-column: 1 / -1; grid-row: auto; }
+  .films.feature .film:last-child:nth-child(even) { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) { .films.feature { grid-template-columns: minmax(0, 1fr); } .films.feature .film:first-child { grid-column: auto; } }
+.films.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1000px) { .films.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } .films.three .film:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@media (max-width: 760px) { .films, .films.three { grid-template-columns: minmax(0, 1fr); } }
+.film { display: grid; gap: 18px; align-content: start; min-width: 0; }
+.frame { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: var(--ground-2); border: 1px solid var(--line); overflow: hidden; }
+.band.alt .frame { background: var(--ground); }
+.frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .6s, opacity .4s; opacity: 0; }
+.frame img.on { opacity: 1; }
+.film:hover .frame img.on { transform: scale(1.035); filter: none; }
+.frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.frame .ph { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 20px; }
+.frame .ph span { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+.play { position: absolute; inset: 0; display: grid; place-items: center; text-decoration: none; background: linear-gradient(to top, rgba(10,10,10,0.55), rgba(10,10,10,0) 55%); }
+.play .ring { width: clamp(52px, 5vw, 72px); height: clamp(52px, 5vw, 72px); border-radius: 50%; border: 1.5px solid var(--hi); display: grid; place-items: center; color: var(--hi); background: rgba(10,10,10,0.35); backdrop-filter: blur(4px); transition: transform .3s, background .3s, color .3s; }
+.play:hover .ring, .play:focus-visible .ring { transform: scale(1.08); background: var(--hi); color: var(--ground); }
+.play .yt { position: absolute; left: 14px; bottom: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hi); }
+.cap { display: grid; gap: 8px; }
+.cap-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; }
+.cap h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.3; letter-spacing: 0.01em; color: var(--hi); }
+.films.feature .film:first-child .cap h3 { font-size: clamp(17px, 1.5vw, 20px); }
+.cap p { color: var(--dim); max-width: 62ch; }
+
+/* ---------- about ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); }
+@media (max-width: 900px) { .about { grid-template-columns: minmax(0, 1fr); } }
+.about h2 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(20px, 2vw, 26px); line-height: 1.15; color: var(--hi); }
+.about-text { display: grid; gap: 24px; align-content: start; min-width: 0; }
+.about-text p { font-size: 15px; color: var(--film); max-width: 60ch; }
+.sheet { margin: 0; display: grid; align-content: start; }
+.sheet div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding-block: 16px; border-top: 1px solid var(--line); }
+.sheet div:last-child { border-bottom: 1px solid var(--line); }
+.sheet dt { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); padding-top: 3px; }
+.sheet dd { margin: 0; }
+
+/* ---------- contact ---------- */
+.contact { padding-block: clamp(64px, 8vw, 112px) 40px; border-top: 1px solid var(--line); }
+.contact h2 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; color: var(--hi); }
+.contact h2 span { color: transparent; -webkit-text-stroke: 1px var(--hi); }
+@supports not (-webkit-text-stroke: 1px black) { .contact h2 span { color: var(--dim); } }
+.reach { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 28px 48px; margin-top: 40px; }
+.contact-list { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; width: 100%; }
+@media (max-width: 860px) { .contact-list { grid-template-columns: minmax(0, 1fr); } }
+.contact-list > div { display: grid; gap: 6px; padding-block: 16px; border-top: 1px solid var(--line); min-width: 0; }
+.contact-list dd { margin: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.contact-list output { font-size: 16px; color: var(--hi); user-select: all; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.copy { min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: var(--dim); font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; }
+.copy:hover { color: var(--hi); text-decoration: underline; text-underline-offset: 4px; }
+.links { display: flex; flex-wrap: wrap; gap: 0 26px; }
+.links a { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding-block: 12px; }
+.links a:hover { color: var(--hi); text-decoration: underline; text-underline-offset: 6px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: clamp(56px, 6vw, 88px); padding-top: 20px; border-top: 1px solid var(--line); }
+
+
+/* hero balance: name and line on the left, craft index on the right */
+.hero-copy { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; padding-block: clamp(104px, 10vw, 132px); }
+@media (max-width: 860px) { .hero-copy { grid-template-columns: minmax(0, 1fr); } }
+.hero-main { display: grid; justify-items: center; gap: 18px; min-width: 0; max-width: 640px; margin-inline: auto; }
+.school { color: var(--film); text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
+.hero-main h1, .hero-main .lead, .hero-index a { text-shadow: 0 1px 12px rgba(0,0,0,0.45); }
+.lead { font-size: 15px; line-height: 1.5; color: var(--hi); max-width: 44ch; }
+.hero-index { display: grid; min-width: 0; border-top: 1px solid rgba(255,255,255,0.4); }
+.hero-index a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; padding-block: 10px; border-bottom: 1px solid rgba(255,255,255,0.2); text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--hi); transition: padding-left .25s; }
+.hero-index a:hover { padding-left: 8px; }
+.hero-index a .label { color: var(--film); }
+.hero-index p { padding-top: 14px; color: var(--film); }
+.reel-controls { position: absolute; z-index: 3; left: calc(clamp(14px, 3vw, 36px) + 10px); bottom: calc(clamp(14px, 3vw, 36px) + 4px); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.reel-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 10px; border: 0; background: transparent; color: var(--hi); font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; text-shadow: 0 1px 2px rgba(0,0,0,0.6); }
+.reel-toggle:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (pointer: coarse) { .reel-toggle { min-height: 44px; } }
+.reel-toggle.sound { padding: 0 12px; border: 1px solid rgba(255,255,255,0.7); border-radius: 999px; text-shadow: none; background: rgba(10,10,10,0.35); backdrop-filter: blur(4px); }
+.reel-toggle.sound:hover { background: var(--hi); color: var(--ground); text-decoration: none; }
+.reel-toggle.sound .wave { display: none; }
+.reel-toggle.sound[aria-pressed="true"] .wave { display: inline; }
+.reel-toggle.sound[aria-pressed="true"] .mute { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .dot, .vf i { animation: none; }
+  .frame img, .play .ring { transition: none; }
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a href="#direction">Direction</a>
+      <a href="#cinematography">Cinematography</a>
+      <a href="#extra-work">Extra Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Introduction">
+    <video class="hero-img" id="reel" autoplay muted loop playsinline preload="auto" poster="poster.jpg" aria-label="Reel footage: a shoot in green paddy fields"><source src="hero.mp4" type="video/mp4"></video>
+    <div class="reel-controls">
+      <button class="reel-toggle sound" id="soundToggle" type="button" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"></path><path class="wave" d="M15.5 8.5a5 5 0 0 1 0 7"></path><path class="wave" d="M18.5 5.5a9 9 0 0 1 0 13"></path><path class="mute" d="m16 9 6 6m0-6-6 6"></path></svg><span>Sound on</span></button>
+      <button class="reel-toggle" id="reelToggle" type="button" aria-pressed="false">Pause reel</button>
+    </div>
+    <canvas class="grain" id="grain" aria-hidden="true"></canvas>
+    <div class="vf" aria-hidden="true">
+      <i></i><i></i><i></i><i></i>
+      <span class="hud tl"><span class="dot"></span>REC · A012</span>
+      <span class="hud tr">LIVE VIEW</span>
+      <span class="hud br" id="tc">01:00:00:00</span>
+    </div>
+    <div class="wrap hero-copy">
+      <div class="hero-main">
+        <h1>Shriniwas Waje</h1>
+        <div class="ctas">
+          <a class="btn solid sm" href="#direction">Watch films</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="band" id="direction" aria-labelledby="dir-h">
+    <div class="wrap">
+      <div class="slate">
+        <h2 id="dir-h">Direction</h2>
+        <div class="slate-meta">
+          <div><span class="label">Films</span><strong>06</strong></div>
+          <div><span class="label">Role</span><strong>Director</strong></div>
+        </div>
+      </div>
+      <div class="films feature">
+        <article class="film" data-yt="VqLmNLe61JQ">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=VqLmNLe61JQ" target="_blank" rel="noopener" aria-label="Play Ticha Ghar">
+              <span class="ring"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Ticha Ghar</h3><span class="label"><b>Director, Writer</b> · 2026</span></div>
+            <p>A young man returns to his abandoned childhood home to collect documents, only to find himself reliving a tender memory with his grandmother that helps him confront failure, growing up, and letting go.</p>
+          </div>
+        </article>
+
+        <article class="film" data-yt="wx4gKTrmmdM">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=wx4gKTrmmdM" target="_blank" rel="noopener" aria-label="Play Char Kadam Aage, Paanch Kadam Peeche">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Char Kadam Aage, Paanch Kadam Peeche</h3><span class="label"><b>Direction</b> · 2026</span></div>
+          </div>
+        </article>
+        <article class="film" data-yt="R2mNDjCN-4A">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=R2mNDjCN-4A" target="_blank" rel="noopener" aria-label="Play Mentos TVC">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Mentos TVC</h3><span class="label"><b>Direction</b></span></div>
+          </div>
+        </article>
+        <article class="film" data-yt="0i8mYp0qB0k">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=0i8mYp0qB0k" target="_blank" rel="noopener" aria-label="Play Cybersecurity PSA">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Cybersecurity PSA</h3><span class="label"><b>Direction</b></span></div>
+          </div>
+        </article>
+
+
+        <article class="film" data-yt="FjAFEoJFXjg">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=FjAFEoJFXjg" target="_blank" rel="noopener" aria-label="Play Radio Mirchi TVC, NID">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Radio Mirchi TVC, NID</h3><span class="label"><b>Direction</b></span></div>
+          </div>
+        </article>
+
+
+
+        <article class="film" data-yt="L_4BpriEIoQ">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=L_4BpriEIoQ" target="_blank" rel="noopener" aria-label="Play Moral Policing PSA, NID">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Moral Policing PSA, NID</h3><span class="label"><b>Direction</b></span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="cinematography" aria-labelledby="cin-h">
+    <div class="wrap">
+      <div class="slate">
+        <h2 id="cin-h" class="hollow">Cinematography</h2>
+        <div class="slate-meta">
+          <div><span class="label">Films</span><strong>03</strong></div>
+          <div><span class="label">Role</span><strong>DOP</strong></div>
+        </div>
+      </div>
+      <div class="films three">
+        <article class="film" data-yt="6iBhPSTYjgs">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=6iBhPSTYjgs" target="_blank" rel="noopener" aria-label="Play Cybersecurity PSA">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Cybersecurity PSA</h3><span class="label"><b>Cinematography</b></span></div>
+          </div>
+        </article>
+        <article class="film" data-yt="ZG-dCVBr8P4">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=ZG-dCVBr8P4" target="_blank" rel="noopener" aria-label="Play Mentos TVC">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Mentos TVC</h3><span class="label"><b>Cinematography</b></span></div>
+          </div>
+        </article>
+        <article class="film" data-yt="vBNC6C3rIu4">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=vBNC6C3rIu4" target="_blank" rel="noopener" aria-label="Play Draft One">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Draft One</h3><span class="label"><b>Cinematography</b></span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="extra-work" aria-labelledby="extra-h">
+    <div class="wrap">
+      <div class="slate">
+        <h2 id="extra-h">Extra Work</h2>
+        <div class="slate-meta">
+          <div><span class="label">Projects</span><strong>04</strong></div>
+        </div>
+      </div>
+      <div class="films">
+        <article class="film" data-yt="nwlw8JUSXSc">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=nwlw8JUSXSc" target="_blank" rel="noopener" aria-label="Play extra work video 1">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+        </article>
+        <article class="film" data-yt="nBn2LemvfXk">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=nBn2LemvfXk" target="_blank" rel="noopener" aria-label="Play extra work video 2">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+        </article>
+        <article class="film" data-yt="aXUm4bw1C_M">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=aXUm4bw1C_M" target="_blank" rel="noopener" aria-label="Play extra work video 3">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+        </article>
+        <article class="film" data-yt="8JjiQWNWA1o">
+          <div class="frame">
+            <div class="ph"><span>Thumbnail from YouTube</span></div>
+            <img alt="">
+            <a class="play" href="https://www.youtube.com/watch?v=8JjiQWNWA1o" target="_blank" rel="noopener" aria-label="Play Monsoon Fiesta Promo, NID">
+              <span class="ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+              <span class="yt">YouTube</span>
+            </a>
+          </div>
+          <div class="cap">
+            <div class="cap-row"><h3>Monsoon Fiesta Promo, NID</h3><span class="label"><b>Extra work</b></span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="about" aria-labelledby="about-h">
+    <div class="wrap about">
+      <div class="about-text">
+        <span class="label"><b>About</b></span>
+        <h2 id="about-h">Behind the camera</h2>
+        <p>Hey, I’m Shree, a Film and Video Communication student at NID Ahmedabad, originally from Nashik, Maharashtra.</p>
+        <p>I’m into filmmaking, video editing, and graphic design. I enjoy being involved in different parts of the creative process, from coming up with ideas to bringing them to life on screen. I’m always curious to try new things, learn along the way, and get better at what I do.</p>
+      </div>
+      <dl class="sheet">
+        <div><dt>Studying</dt><dd>Film &amp; Video Communication, National Institute of Design, Ahmedabad</dd></div>
+        <div><dt>Crafts</dt><dd>Direction, cinematography, editing, writing</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <span class="label"><b>Contact</b> · Open to collaborations and internships</span>
+      <h2 id="contact-h" style="margin-top: 20px">Let’s roll <span>camera.</span></h2>
+      <div class="reach">
+        <dl class="contact-list">
+          <div><dt class="label">Email · NID</dt><dd><output id="c1">shriniwas_w@nid.edu</output><button class="copy" type="button" data-copy="c1">Copy</button></dd></div>
+          <div><dt class="label">Email</dt><dd><output id="c2">shreewaje25@gmail.com</output><button class="copy" type="button" data-copy="c2">Copy</button></dd></div>
+          <div><dt class="label">Phone</dt><dd><output id="c3">+91 83299 16500</output><button class="copy" type="button" data-copy="c3">Copy</button></dd></div>
+        </dl>
+      </div>
+      <div class="foot">
+        <span class="label">© 2026 Shriniwas Waje</span>
+        <span class="label">NID Ahmedabad · Film &amp; Video Communication</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+  /* Background reel: pause control, and no autoplay for reduced motion */
+  var reel = document.getElementById('reel');
+  var tog = document.getElementById('reelToggle');
+  if (reel && tog) {
+    var setState = function (paused) { tog.textContent = paused ? 'Play reel' : 'Pause reel'; tog.setAttribute('aria-pressed', paused ? 'true' : 'false'); };
+    if (still) { reel.removeAttribute('autoplay'); reel.pause(); setState(true); }
+    tog.addEventListener('click', function () {
+      if (reel.paused) { var p = reel.play(); if (p && p.catch) p.catch(function () {}); setState(false); } else { reel.pause(); setState(true); }
+    });
+  }
+
+  /* Sound: browsers only autoplay muted video, so sound starts from this button */
+  var snd = document.getElementById('soundToggle');
+  if (reel && snd) {
+    var setSound = function (on) { snd.setAttribute('aria-pressed', on ? 'true' : 'false'); snd.querySelector('span').textContent = on ? 'Sound off' : 'Sound on'; };
+    snd.addEventListener('click', function () {
+      var on = reel.muted;
+      reel.muted = !on;
+      if (on) { reel.volume = 0.8; if (reel.paused) { var p = reel.play(); if (p && p.catch) p.catch(function () {}); if (tog) { tog.textContent = 'Pause reel'; tog.setAttribute('aria-pressed', 'false'); } } }
+      setSound(on);
+    });
+  }
+
+  /* Running timecode in the viewfinder, 24 fps */
+  var tc = document.getElementById('tc');
+  if (tc && !still) {
+    var t0 = performance.now();
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    setInterval(function () {
+      var f = Math.floor((performance.now() - t0) / (1000 / 24));
+      var s = Math.floor(f / 24);
+      tc.textContent = '01:' + pad(Math.floor(s / 60) % 60) + ':' + pad(s % 60) + ':' + pad(f % 24);
+    }, 1000 / 24);
+  }
+
+  /* Film grain over the black-and-white photo */
+  var cv = document.getElementById('grain');
+  if (cv && cv.getContext) {
+    var ctx = cv.getContext('2d');
+    cv.width = 240; cv.height = 160;
+    var draw = function () {
+      var d = ctx.createImageData(cv.width, cv.height);
+      for (var i = 0; i < d.data.length; i += 4) {
+        var v = Math.random() * 255 | 0;
+        d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255;
+      }
+      ctx.putImageData(d, 0, 0);
+    };
+    cv.style.width = '100%'; cv.style.height = '100%';
+    draw();
+    if (!still) setInterval(draw, 1000 / 12);
+  }
+
+  /* Films: load YouTube thumbnails; where they load, a click plays the film inline. Where YouTube is blocked, the play button opens YouTube. */
+  document.querySelectorAll('.film[data-yt]').forEach(function (film) {
+    var id = film.getAttribute('data-yt');
+    var img = film.querySelector('img');
+    var play = film.querySelector('.play');
+    if (!id || !img) return;
+    var tried = false;
+    img.onload = function () {
+      if (img.naturalWidth <= 120 && !tried) { tried = true; img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; return; }
+      img.classList.add('on');
+      film.setAttribute('data-embed', 'ok');
+    };
+    img.onerror = function () {
+      if (!tried) { tried = true; img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; }
+    };
+    img.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+    if (play) play.addEventListener('click', function (e) {
+      if (film.getAttribute('data-embed') !== 'ok') return;
+      e.preventDefault();
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = play.getAttribute('aria-label') || 'Film';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      film.querySelector('.frame').replaceChildren(f);
+    });
+  });
+
+  /* Copy contact details */
+  document.querySelectorAll('.copy[data-copy]').forEach(function (btn) {
+    var out = document.getElementById(btn.getAttribute('data-copy'));
+    if (!out) return;
+    btn.addEventListener('click', function () {
+      var text = out.textContent.replace(/\s+/g, out.id === 'c3' ? '' : ' ').trim();
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      var fallback = function () { var r = document.createRange(); r.selectNodeContents(out); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; };
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch (err) { fallback(); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
